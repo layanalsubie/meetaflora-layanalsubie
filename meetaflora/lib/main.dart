@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:sizer/sizer.dart';
 import 'core/setup.dart';
 import 'core/theme/app_theme.dart';
@@ -9,6 +10,7 @@ import 'core/navigation/app_router.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await dotenv.load(fileName: ".env");
   await EasyLocalization.ensureInitialized();
   await setup();
   await configureDependencies();
@@ -44,4 +46,3 @@ class MainApp extends StatelessWidget {
     );
   }
 }
-

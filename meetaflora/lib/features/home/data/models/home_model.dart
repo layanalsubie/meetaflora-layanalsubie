@@ -9,6 +9,7 @@ abstract class HomeModel with _$HomeModel {
   const factory HomeModel({
     required int id,
     required String photographer,
+    required String alt,
     @JsonKey(name: 'src', fromJson: _imageUrlFromJson) required String imageUrl,
   }) = _HomeModel;
 
@@ -26,7 +27,7 @@ extension HomeModelMapper on HomeModel {
     return HomeEntity(
       id: id,
       photographer: photographer,
-      imageUrl: imageUrl,
+      imageUrl: imageUrl, alt: alt,
     );
   }
 }
