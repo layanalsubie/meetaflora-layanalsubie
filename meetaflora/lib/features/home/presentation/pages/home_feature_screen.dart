@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:any_image_view/any_image_view.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:meetaflora/core/constants/app_colors.dart';
 import 'package:meetaflora/core/extensions/font_extensions.dart';
 
@@ -9,12 +12,47 @@ class HomeFeatureScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actionsPadding: EdgeInsets.all(16),
         toolbarHeight: 100,
         backgroundColor: AppColors.background,
         title: AnyImageView(
           imagePath: 'assets/images/flora-logo-appbar.png',
           height: 10.sizeSH(min: 190),
         ),
+        actions: [
+          PopupMenuButton<String>(
+            onSelected: (String value) => log(value),
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                child: Row(
+                  children: [
+                    Icon(Icons.photo, color: Color(0xff165D33)),
+                    Gap(10),
+                    Text('Upload from gallery'),
+                  ],
+                ),
+              ),
+              PopupMenuItem(
+                child: Row(
+                  children: [
+                    Icon(Icons.camera_alt, color: Color(0xff165D33)),
+                    Gap(10),
+                    Text('Take a photo'),
+                  ],
+                ),
+              ),
+            ],
+            child: Container(
+              height: 50,
+              width: 50,
+              decoration: BoxDecoration(
+                border: Border.all(color: Color(0xff165D33), width: 1),
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Icon(Icons.upload_rounded, color: Color(0xff165D33)),
+            ),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
