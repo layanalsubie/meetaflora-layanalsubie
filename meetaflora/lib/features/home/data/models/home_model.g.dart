@@ -8,13 +8,13 @@ part of 'home_model.dart';
 
 _HomeModel _$HomeModelFromJson(Map<String, dynamic> json) => _HomeModel(
   id: (json['id'] as num).toInt(),
-  firstName: json['firstName'] as String,
-  lastName: json['lastName'] as String,
+  photographer: json['photographer'] as String,
+  imageUrl: json['imageUrl'] as String,
 );
 
 Map<String, dynamic> _$HomeModelToJson(_HomeModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'firstName': instance.firstName,
-      'lastName': instance.lastName,
+      'photographer': instance.photographer,
+      'imageUrl': instance.imageUrl,
     };

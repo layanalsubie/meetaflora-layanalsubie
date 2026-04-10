@@ -1,5 +1,6 @@
 import 'package:meetaflora/features/home/domain/entities/home_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'home_model.freezed.dart';
 part 'home_model.g.dart';
 
@@ -7,18 +8,20 @@ part 'home_model.g.dart';
 abstract class HomeModel with _$HomeModel {
   const factory HomeModel({
     required int id,
-    required String firstName,
-    required String lastName,
-    
+    required String photographer,
+    required String imageUrl,
   }) = _HomeModel;
 
-  factory HomeModel.fromJson(Map<String, Object?> json) => _$HomeModelFromJson(json);
+  factory HomeModel.fromJson(Map<String, Object?> json) =>
+      _$HomeModelFromJson(json);
 }
-
-
 
 extension HomeModelMapper on HomeModel {
   HomeEntity toEntity() {
-    return HomeEntity(id: id, firstName: firstName, lastName: lastName);
+    return HomeEntity(
+      id: id,
+      photographer: photographer,
+      imageUrl: imageUrl,
+    );
   }
-  }
+}

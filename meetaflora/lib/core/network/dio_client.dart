@@ -16,7 +16,7 @@ class DioClient {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
-          'x-pexels-key': dotenv.env['pexels_key'],
+          'Authorization': dotenv.env['pexels_key'],
         },
       ),
     );

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$HomeModel {
 
- int get id; String get firstName; String get lastName;
+ int get id; String get photographer; String get imageUrl;
 /// Create a copy of HomeModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $HomeModelCopyWith<HomeModel> get copyWith => _$HomeModelCopyWithImpl<HomeModel>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeModel&&(identical(other.id, id) || other.id == id)&&(identical(other.firstName, firstName) || other.firstName == firstName)&&(identical(other.lastName, lastName) || other.lastName == lastName));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeModel&&(identical(other.id, id) || other.id == id)&&(identical(other.photographer, photographer) || other.photographer == photographer)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,firstName,lastName);
+int get hashCode => Object.hash(runtimeType,id,photographer,imageUrl);
 
 @override
 String toString() {
-  return 'HomeModel(id: $id, firstName: $firstName, lastName: $lastName)';
+  return 'HomeModel(id: $id, photographer: $photographer, imageUrl: $imageUrl)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $HomeModelCopyWith<$Res>  {
   factory $HomeModelCopyWith(HomeModel value, $Res Function(HomeModel) _then) = _$HomeModelCopyWithImpl;
 @useResult
 $Res call({
- int id, String firstName, String lastName
+ int id, String photographer, String imageUrl
 });
 
 
@@ -65,11 +65,11 @@ class _$HomeModelCopyWithImpl<$Res>
 
 /// Create a copy of HomeModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? firstName = null,Object? lastName = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? photographer = null,Object? imageUrl = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
-as String,lastName: null == lastName ? _self.lastName : lastName // ignore: cast_nullable_to_non_nullable
+as int,photographer: null == photographer ? _self.photographer : photographer // ignore: cast_nullable_to_non_nullable
+as String,imageUrl: null == imageUrl ? _self.imageUrl : imageUrl // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -155,10 +155,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String firstName,  String lastName)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String photographer,  String imageUrl)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _HomeModel() when $default != null:
-return $default(_that.id,_that.firstName,_that.lastName);case _:
+return $default(_that.id,_that.photographer,_that.imageUrl);case _:
   return orElse();
 
 }
@@ -176,10 +176,10 @@ return $default(_that.id,_that.firstName,_that.lastName);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String firstName,  String lastName)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String photographer,  String imageUrl)  $default,) {final _that = this;
 switch (_that) {
 case _HomeModel():
-return $default(_that.id,_that.firstName,_that.lastName);case _:
+return $default(_that.id,_that.photographer,_that.imageUrl);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -196,10 +196,10 @@ return $default(_that.id,_that.firstName,_that.lastName);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String firstName,  String lastName)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String photographer,  String imageUrl)?  $default,) {final _that = this;
 switch (_that) {
 case _HomeModel() when $default != null:
-return $default(_that.id,_that.firstName,_that.lastName);case _:
+return $default(_that.id,_that.photographer,_that.imageUrl);case _:
   return null;
 
 }
@@ -211,12 +211,12 @@ return $default(_that.id,_that.firstName,_that.lastName);case _:
 @JsonSerializable()
 
 class _HomeModel implements HomeModel {
-  const _HomeModel({required this.id, required this.firstName, required this.lastName});
+  const _HomeModel({required this.id, required this.photographer, required this.imageUrl});
   factory _HomeModel.fromJson(Map<String, dynamic> json) => _$HomeModelFromJson(json);
 
 @override final  int id;
-@override final  String firstName;
-@override final  String lastName;
+@override final  String photographer;
+@override final  String imageUrl;
 
 /// Create a copy of HomeModel
 /// with the given fields replaced by the non-null parameter values.
@@ -231,16 +231,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HomeModel&&(identical(other.id, id) || other.id == id)&&(identical(other.firstName, firstName) || other.firstName == firstName)&&(identical(other.lastName, lastName) || other.lastName == lastName));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HomeModel&&(identical(other.id, id) || other.id == id)&&(identical(other.photographer, photographer) || other.photographer == photographer)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,firstName,lastName);
+int get hashCode => Object.hash(runtimeType,id,photographer,imageUrl);
 
 @override
 String toString() {
-  return 'HomeModel(id: $id, firstName: $firstName, lastName: $lastName)';
+  return 'HomeModel(id: $id, photographer: $photographer, imageUrl: $imageUrl)';
 }
 
 
@@ -251,7 +251,7 @@ abstract mixin class _$HomeModelCopyWith<$Res> implements $HomeModelCopyWith<$Re
   factory _$HomeModelCopyWith(_HomeModel value, $Res Function(_HomeModel) _then) = __$HomeModelCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String firstName, String lastName
+ int id, String photographer, String imageUrl
 });
 
 
@@ -268,11 +268,11 @@ class __$HomeModelCopyWithImpl<$Res>
 
 /// Create a copy of HomeModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? firstName = null,Object? lastName = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? photographer = null,Object? imageUrl = null,}) {
   return _then(_HomeModel(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
-as String,lastName: null == lastName ? _self.lastName : lastName // ignore: cast_nullable_to_non_nullable
+as int,photographer: null == photographer ? _self.photographer : photographer // ignore: cast_nullable_to_non_nullable
+as String,imageUrl: null == imageUrl ? _self.imageUrl : imageUrl // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
