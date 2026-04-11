@@ -5,6 +5,8 @@ import 'package:meetaflora/features/home/presentation/cubit/home_state.dart';
 class HomeCubit extends Cubit<HomeState> {
   final HomeUseCase _homeUseCase;
 
+  String currentQuery = 'rose';
+
   HomeCubit(this._homeUseCase) : super(HomeInitialState());
 
   Future<void> searchPlantImages({
@@ -12,6 +14,7 @@ class HomeCubit extends Cubit<HomeState> {
     int perPage = 10,
     int page = 1,
   }) async {
+    currentQuery = query;
     emit(HomeLoadingState());
 
     final result = await _homeUseCase.searchPlantImages(
@@ -28,11 +31,5 @@ class HomeCubit extends Cubit<HomeState> {
         emit(HomeErrorState(message: whenError.toString()));
       },
     );
-  }
-
-  @override
-  Future<void> close() {
-    //here is when close cubit
-    return super.close();
   }
 }

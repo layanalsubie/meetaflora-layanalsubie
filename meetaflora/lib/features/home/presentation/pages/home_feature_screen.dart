@@ -56,7 +56,12 @@ class HomeFeatureScreen extends HookWidget {
                     },
                   ),
                   Gap(10),
-                  Expanded(child: HomeGridViewWidget(plants: state.plants)),
+                  Expanded(
+                    child: HomeGridViewWidget(
+                      plants: state.plants,
+                      plantName: cubit.currentQuery,
+                    ),
+                  ),
                 ],
               );
             }

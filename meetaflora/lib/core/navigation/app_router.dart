@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 import 'package:meetaflora/features/home/domain/use_cases/home_use_case.dart';
+import 'package:meetaflora/features/plant_info/domain/use_cases/plant_info_use_case.dart';
 import 'routers.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,7 +9,6 @@ import 'package:meetaflora/features/home/presentation/pages/home_feature_screen.
 import 'package:meetaflora/features/home/presentation/cubit/home_cubit.dart';
 import 'package:meetaflora/features/plant_info/presentation/pages/plant_info_feature_screen.dart';
 import 'package:meetaflora/features/plant_info/presentation/cubit/plant_info_cubit.dart';
-
 
 class AppRouter {
   static final GoRouter router = GoRouter(
@@ -28,15 +28,23 @@ class AppRouter {
           child: HomeFeatureScreen(),
         ),
       ),
-    
-  GoRoute(
-    path: Routes.plantInfo,
-    builder: (context, state) => BlocProvider(
-          create: (context) => PlantInfoCubit(GetIt.I.get()),
-          child: const PlantInfoFeatureScreen(),
-        ),
-  ),
-],
+
+      GoRoute(
+        path: Routes.plantInfo,
+        builder: (context, state) {
+          final extra = state.extra as Map<String, String>;
+
+          return BlocProvider(
+            create: (context) =>
+                PlantInfoCubit(GetIt.I.get<PlantInfoUseCase>()),
+            child: PlantInfoFeatureScreen(
+              plantName: extra['plantName'] as String,
+              imageUrl: extra['imageUrl'] as String,
+            ),
+          );
+        },
+      ),
+    ],
 
     errorBuilder: (context, state) =>
         Scaffold(body: Center(child: Text('Page not found: ${state.uri}'))),
