@@ -7,6 +7,7 @@ import 'package:meetaflora/core/constants/app_colors.dart';
 import 'package:meetaflora/core/widgets/loading_widget.dart';
 import 'package:meetaflora/features/plant_info/presentation/cubit/plant_info_cubit.dart';
 import 'package:meetaflora/features/plant_info/presentation/cubit/plant_info_state.dart';
+import 'package:meetaflora/features/plant_info/presentation/widgets/plant_info_widget.dart';
 import 'package:sizer/sizer.dart';
 
 class PlantInfoFeatureScreen extends HookWidget {
@@ -54,7 +55,7 @@ class PlantInfoFeatureScreen extends HookWidget {
                 crossAxisAlignment: .start,
                 children: [
                   AnyImageView(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: .circular(20),
                     imagePath: imageUrl,
                     width: 100.sw,
                     height: 260,
@@ -66,11 +67,25 @@ class PlantInfoFeatureScreen extends HookWidget {
                     style: TextStyle(fontSize: 24, fontWeight: .bold),
                   ),
                   Gap(16),
+                  InfoCard(
+                    title: 'Description',
+                    content: details.description,
+                  ),
+                  Gap(12),
+                  InfoCard(
+                    title: 'Care Tips',
+                    content: details.careTips,
+                  ),
+                  Gap(12),
+                  InfoCard(
+                    title: 'Fun Fact',
+                    content: details.funFact,
+                  ),
                 ],
               ),
             );
           }
-          return SizedBox.shrink();
+          return LoadingWidget();
         },
       ),
     );
