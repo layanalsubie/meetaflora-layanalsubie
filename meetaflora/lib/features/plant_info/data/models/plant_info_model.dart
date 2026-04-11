@@ -6,19 +6,23 @@ part 'plant_info_model.g.dart';
 @freezed
 abstract class PlantInfoModel with _$PlantInfoModel {
   const factory PlantInfoModel({
-    required int id,
-    required String firstName,
-    required String lastName,
-    
+    required String plantName,
+    required String description,
+    required String careTips,
+    required String funFact,
   }) = _PlantInfoModel;
 
-  factory PlantInfoModel.fromJson(Map<String, Object?> json) => _$PlantInfoModelFromJson(json);
+  factory PlantInfoModel.fromJson(Map<String, Object?> json) =>
+      _$PlantInfoModelFromJson(json);
 }
-
-
 
 extension PlantInfoModelMapper on PlantInfoModel {
   PlantInfoEntity toEntity() {
-    return PlantInfoEntity(id: id, firstName: firstName, lastName: lastName);
+    return PlantInfoEntity(
+      plantName: plantName,
+      description: description,
+      careTips: careTips,
+      funFact: funFact,
+    );
   }
-  }
+}
