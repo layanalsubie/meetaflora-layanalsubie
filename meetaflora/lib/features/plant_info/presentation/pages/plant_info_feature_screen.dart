@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:meetaflora/features/plant_info/presentation/cubit/plant_info_cubit.dart';
 
-class PlantInfoFeatureScreen extends StatelessWidget {
+class PlantInfoFeatureScreen extends HookWidget {
   const PlantInfoFeatureScreen({super.key});
   @override
   Widget build(BuildContext context) {
