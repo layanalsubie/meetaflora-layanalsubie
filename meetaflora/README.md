@@ -11,6 +11,14 @@
 
 ---
 
+## 🎥 App Demo
+
+
+https://github.com/user-attachments/assets/132c66d8-73cc-47cc-97e6-6867bed2b011
+
+
+---
+
 ## ✨ Key Features
 * **AI Plant Recognition:** Upload an image from your gallery and let Gemini AI analyze and identify the species.
 * **Flexible Search:** Search for plants by name to retrieve scientific data and fun facts.
