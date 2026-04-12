@@ -87,6 +87,7 @@ class PlantInfoFeatureScreen extends HookWidget {
                     icon: Icons.auto_awesome_outlined,
                     iconColor: Colors.purple,
                   ),
+                  Gap(40),
                 ],
               ),
             );
